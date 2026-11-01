@@ -1,0 +1,108 @@
+2026-09-12 1 Tishrei 5787     roshHashana(day=1) shabbat                   Rosh Hashana 5787
+2026-09-13 2 Tishrei 5787     roshHashana(day=2)                           Rosh Hashana II
+2026-09-14 3 Tishrei 5787     fastDay                                      Tzom Gedaliah
+2026-09-19 8 Tishrei 5787     shabbat                                      
+2026-09-20 9 Tishrei 5787     yomKippur(erev=true)                         Erev Yom Kippur
+2026-09-21 10 Tishrei 5787    yomKippur                                    Yom Kippur
+2026-09-25 14 Tishrei 5787    sukkot(erev=true)                            Erev Sukkot
+2026-09-26 15 Tishrei 5787    sukkot(day=1) shabbat                        Sukkot I
+2026-09-27 16 Tishrei 5787    sukkot(day=2)                                Sukkot II (CH''M)
+2026-09-28 17 Tishrei 5787    sukkot(day=3)                                Sukkot III (CH''M)
+2026-09-29 18 Tishrei 5787    sukkot(day=4)                                Sukkot IV (CH''M)
+2026-09-30 19 Tishrei 5787    sukkot(day=5)                                Sukkot V (CH''M)
+2026-10-01 20 Tishrei 5787    sukkot(day=6)                                Sukkot VI (CH''M)
+2026-10-02 21 Tishrei 5787    sukkot(day=7)                                Sukkot VII (Hoshana Raba)
+2026-10-03 22 Tishrei 5787    simchatTorah shabbat                         Shmini Atzeret
+2026-10-10 29 Tishrei 5787    shabbat                                      
+2026-10-11 30 Tishrei 5787    roshChodesh                                  Rosh Chodesh Cheshvan
+2026-10-12 1 Cheshvan 5787    roshChodesh                                  Rosh Chodesh Cheshvan
+2026-10-17 6 Cheshvan 5787    shabbat                                      
+2026-10-24 13 Cheshvan 5787   shabbat                                      
+2026-10-31 20 Cheshvan 5787   shabbat                                      
+2026-11-07 27 Cheshvan 5787   shabbat                                      
+2026-11-10 30 Cheshvan 5787   roshChodesh                                  Rosh Chodesh Kislev
+2026-11-11 1 Kislev 5787      roshChodesh                                  Rosh Chodesh Kislev
+2026-11-14 4 Kislev 5787      shabbat                                      
+2026-11-21 11 Kislev 5787     shabbat                                      
+2026-11-28 18 Kislev 5787     shabbat                                      
+2026-12-04 24 Kislev 5787     chanukah(night=1,erev=true)                  Chanukah: 1 Candle
+2026-12-05 25 Kislev 5787     chanukah(night=1,day=1) shabbat              Chanukah: 2 Candles
+2026-12-06 26 Kislev 5787     chanukah(night=2,day=2)                      Chanukah: 3 Candles
+2026-12-07 27 Kislev 5787     chanukah(night=3,day=3)                      Chanukah: 4 Candles
+2026-12-08 28 Kislev 5787     chanukah(night=4,day=4)                      Chanukah: 5 Candles
+2026-12-09 29 Kislev 5787     chanukah(night=5,day=5)                      Chanukah: 6 Candles
+2026-12-10 30 Kislev 5787     chanukah(night=6,day=6) roshChodesh          Chanukah: 7 Candles | Rosh Chodesh Tevet
+2026-12-11 1 Tevet 5787       chanukah(night=7,day=7) roshChodesh          Chanukah: 8 Candles | Rosh Chodesh Tevet
+2026-12-12 2 Tevet 5787       chanukah(night=8,day=8) shabbat              Chanukah: 8th Day
+2026-12-19 9 Tevet 5787       shabbat                                      
+2026-12-20 10 Tevet 5787      fastDay                                      Asara B'Tevet
+2026-12-26 16 Tevet 5787      shabbat                                      
+2027-01-02 23 Tevet 5787      shabbat                                      
+2027-01-09 1 Sh'vat 5787      shabbat roshChodesh                          Rosh Chodesh Sh'vat
+2027-01-16 8 Sh'vat 5787      shabbat                                      
+2027-01-23 15 Sh'vat 5787     shabbat tuBishvat                            Tu BiShvat
+2027-01-30 22 Sh'vat 5787     shabbat                                      
+2027-02-06 29 Sh'vat 5787     shabbat                                      
+2027-02-07 30 Sh'vat 5787     roshChodesh                                  Rosh Chodesh Adar I
+2027-02-08 1 Adar I 5787      roshChodesh                                  Rosh Chodesh Adar I
+2027-02-13 6 Adar I 5787      shabbat                                      
+2027-02-20 13 Adar I 5787     shabbat                                      
+2027-02-27 20 Adar I 5787     shabbat                                      
+2027-03-06 27 Adar I 5787     shabbat                                      
+2027-03-09 30 Adar I 5787     roshChodesh                                  Rosh Chodesh Adar II
+2027-03-10 1 Adar II 5787     roshChodesh                                  Rosh Chodesh Adar II
+2027-03-13 4 Adar II 5787     shabbat                                      
+2027-03-20 11 Adar II 5787    shabbat                                      
+2027-03-22 13 Adar II 5787    purim(erev=true) fastDay                     Erev Purim | Ta'anit Esther
+2027-03-23 14 Adar II 5787    purim                                        Purim
+2027-03-24 15 Adar II 5787    purim                                        Shushan Purim
+2027-03-27 18 Adar II 5787    shabbat                                      
+2027-04-03 25 Adar II 5787    shabbat                                      
+2027-04-08 1 Nisan 5787       roshChodesh                                  Rosh Chodesh Nisan
+2027-04-10 3 Nisan 5787       shabbat                                      
+2027-04-17 10 Nisan 5787      shabbat                                      
+2027-04-21 14 Nisan 5787      pesach(erev=true) fastDay                    Erev Pesach | Ta'anit Bechorot
+2027-04-22 15 Nisan 5787      pesach(day=1)                                Pesach I
+2027-04-23 16 Nisan 5787      pesach(day=2)                                Pesach II (CH''M)
+2027-04-24 17 Nisan 5787      pesach(day=3) shabbat                        Pesach III (CH''M)
+2027-04-25 18 Nisan 5787      pesach(day=4)                                Pesach IV (CH''M)
+2027-04-26 19 Nisan 5787      pesach(day=5)                                Pesach V (CH''M)
+2027-04-27 20 Nisan 5787      pesach(day=6)                                Pesach VI (CH''M)
+2027-04-28 21 Nisan 5787      pesach(day=7)                                Pesach VII
+2027-05-01 24 Nisan 5787      shabbat                                      
+2027-05-07 30 Nisan 5787      roshChodesh                                  Rosh Chodesh Iyyar
+2027-05-08 1 Iyyar 5787       shabbat roshChodesh                          Rosh Chodesh Iyyar
+2027-05-12 5 Iyyar 5787       yomHaatzmaut                                 Yom HaAtzma'ut
+2027-05-15 8 Iyyar 5787       shabbat                                      
+2027-05-22 15 Iyyar 5787      shabbat                                      
+2027-05-25 18 Iyyar 5787      lagBaomer                                    Lag BaOmer
+2027-05-29 22 Iyyar 5787      shabbat                                      
+2027-06-05 29 Iyyar 5787      shabbat                                      
+2027-06-06 1 Sivan 5787       roshChodesh                                  Rosh Chodesh Sivan
+2027-06-10 5 Sivan 5787       shavuot(erev=true)                           Erev Shavuot
+2027-06-11 6 Sivan 5787       shavuot(day=1)                               Shavuot
+2027-06-12 7 Sivan 5787       shabbat                                      
+2027-06-19 14 Sivan 5787      shabbat                                      
+2027-06-26 21 Sivan 5787      shabbat                                      
+2027-07-03 28 Sivan 5787      shabbat                                      
+2027-07-05 30 Sivan 5787      roshChodesh                                  Rosh Chodesh Tamuz
+2027-07-06 1 Tamuz 5787       roshChodesh                                  Rosh Chodesh Tamuz
+2027-07-10 5 Tamuz 5787       shabbat                                      
+2027-07-17 12 Tamuz 5787      shabbat                                      
+2027-07-22 17 Tamuz 5787      fastDay                                      Tzom Tammuz
+2027-07-24 19 Tamuz 5787      shabbat                                      
+2027-07-31 26 Tamuz 5787      shabbat                                      
+2027-08-04 1 Av 5787          roshChodesh                                  Rosh Chodesh Av
+2027-08-07 4 Av 5787          shabbat                                      
+2027-08-11 8 Av 5787          fastDay(erev=true)                           Erev Tish'a B'Av
+2027-08-12 9 Av 5787          fastDay                                      Tish'a B'Av
+2027-08-14 11 Av 5787         shabbat                                      
+2027-08-21 18 Av 5787         shabbat                                      
+2027-08-28 25 Av 5787         shabbat                                      
+2027-09-02 30 Av 5787         roshChodesh                                  Rosh Chodesh Elul
+2027-09-03 1 Elul 5787        roshChodesh                                  Rosh Chodesh Elul
+2027-09-04 2 Elul 5787        shabbat                                      
+2027-09-11 9 Elul 5787        shabbat                                      
+2027-09-18 16 Elul 5787       shabbat                                      
+2027-09-25 23 Elul 5787       shabbat                                      
+2027-10-01 29 Elul 5787       roshHashana(erev=true)                       Erev Rosh Hashana
