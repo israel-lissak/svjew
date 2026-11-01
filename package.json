@@ -39,6 +39,16 @@
         "default": "./dist/core.cjs"
       }
     },
+    "./icons": {
+      "import": {
+        "types": "./dist/icons.d.ts",
+        "default": "./dist/icons.js"
+      },
+      "require": {
+        "types": "./dist/icons.d.cts",
+        "default": "./dist/icons.cjs"
+      }
+    },
     "./native": {
       "import": {
         "types": "./dist/native.d.ts",
@@ -55,10 +65,10 @@
     "dist"
   ],
   "engines": {
-    "node": ">=20.19"
+    "node": ">=18"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsup",
     "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
