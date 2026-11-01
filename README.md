@@ -5,7 +5,7 @@ React SVG icons for Hebrew calendar days.
 Give it a date and it renders an icon for every Jewish holiday or special day on that date: Shabbat, festivals, Chanukah (with the right number of candles), Rosh Chodesh, fasts and more. On an ordinary day it renders nothing. When days overlap (Shabbat during Chanukah, say), you get all of the icons, in priority order.
 
 ```tsx
-import { SvJew } from 'svjew';
+import { SvJew } from '@israel-lissak/svjew';
 
 <SvJew />; // today's icons, or nothing
 ```
@@ -13,13 +13,13 @@ import { SvJew } from 'svjew';
 - **Accurate.** Holiday data comes from [`@hebcal/core`](https://github.com/hebcal/hebcal-es6), including both the Israel and diaspora schedules.
 - **Accessible.** Every icon has a Hebrew `<title>`, and the wrapper has `role="img"` with a combined `aria-label`.
 - **Themeable.** Icons are original 24×24 line drawings in `currentColor`.
-- **Small.** Icons tree-shake individually, and the logic is also available without React (`svjew/core`).
+- **Small.** Icons tree-shake individually, and the logic is also available without React (`@israel-lissak/svjew/core`).
 - **Typed.** Written in TypeScript (strict), and ships ESM and CommonJS.
 
 ## Install
 
 ```sh
-npm install svjew
+npm install @israel-lissak/svjew
 ```
 
 Requires `react` ≥ 17 (peer dependency). For server-side use, Node ≥ 18.
@@ -29,7 +29,7 @@ Requires `react` ≥ 17 (peer dependency). For server-side use, Node ≥ 18.
 ### `<SvJew />`
 
 ```tsx
-import { SvJew } from 'svjew';
+import { SvJew } from '@israel-lissak/svjew';
 
 // A specific date, diaspora schedule, larger icons
 <SvJew date={new Date(2026, 11, 12)} il={false} size={32} />
@@ -61,7 +61,7 @@ When there are no matches, `<SvJew>` renders `fallback` (default `null`) with no
 ### `useSvJew()`
 
 ```tsx
-import { useSvJew } from 'svjew';
+import { useSvJew } from '@israel-lissak/svjew';
 
 function DayBadge({ date }: { date: Date }) {
   const matches = useSvJew({ date, il: true });
@@ -73,10 +73,10 @@ The hook memoizes by option _values_, so inline arrays such as `include={['shabb
 
 ### Without React
 
-`svjew/core` has the same logic with no React import. Its functions are pure and SSR-safe.
+`@israel-lissak/svjew/core` has the same logic with no React import. Its functions are pure and SSR-safe.
 
 ```ts
-import { getSvJewMatches, getSvJewKey } from 'svjew/core';
+import { getSvJewMatches, getSvJewKey } from '@israel-lissak/svjew/core';
 import { HDate } from '@hebcal/core';
 
 getSvJewMatches(new HDate(25, 'Kislev', 5787));
@@ -93,7 +93,7 @@ Both functions take either `(date, options)` or a single options object: `getSvJ
 ### Individual icons
 
 ```tsx
-import { ShabbatIcon, ChanukahIcon } from 'svjew';
+import { ShabbatIcon, ChanukahIcon } from '@israel-lissak/svjew';
 
 <ShabbatIcon size={20} />
 <ChanukahIcon meta={{ night: 3 }} color="goldenrod" /> // 3 candles + shamash
@@ -182,7 +182,7 @@ With `location`, sunset for that date is computed with hebcal's `Zmanim`, and fr
 The icons are plain data, so you can draw them with any SVG renderer:
 
 ```ts
-import { iconData, resolveIcon } from 'svjew/icons';
+import { iconData, resolveIcon } from '@israel-lissak/svjew/icons';
 
 const { viewBox, title, paths } = resolveIcon(iconData.chanukah, { night: 5 });
 // viewBox: '0 0 24 24'
@@ -194,11 +194,11 @@ Paths are drawn with `fill="none"`, `stroke="currentColor"`, `stroke-width="1.5"
 
 ## Entry points
 
-| Import        | Contents                                                      |
-| ------------- | ------------------------------------------------------------- |
-| `svjew`       | everything: core functions, icon data, React components       |
-| `svjew/core`  | `getSvJewMatches`, `getSvJewKey`, constants, types (no React) |
-| `svjew/icons` | icon data and `resolveIcon` (no React)                        |
+| Import                       | Contents                                                      |
+| ---------------------------- | ------------------------------------------------------------- |
+| `@israel-lissak/svjew`       | everything: core functions, icon data, React components       |
+| `@israel-lissak/svjew/core`  | `getSvJewMatches`, `getSvJewKey`, constants, types (no React) |
+| `@israel-lissak/svjew/icons` | icon data and `resolveIcon` (no React)                        |
 
 The ESM build depends on `@hebcal/core`. That package is ESM-only, so the CommonJS build bundles its own copy of it. Prefer ESM where you can.
 
