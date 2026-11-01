@@ -1,8 +1,8 @@
 # svjew
 
-React SVG icons for Hebrew calendar days. Give it a date and it renders an icon for every Jewish holiday or special day on that date: Shabbat, festivals, Chanukah (with the right number of candles), Rosh Chodesh, fasts and more. On an ordinary day it renders nothing.
+React SVG icons for Hebrew calendar days.
 
-Holiday data comes from [`@hebcal/core`](https://github.com/hebcal/hebcal-es6).
+Give it a date and it renders an icon for every Jewish holiday or special day on that date: Shabbat, festivals, Chanukah (with the right number of candles), Rosh Chodesh, fasts and more. On an ordinary day it renders nothing. When days overlap (Shabbat during Chanukah, say), you get all of the icons, in priority order.
 
 ```tsx
 import { SvJew } from 'svjew';
@@ -10,17 +10,23 @@ import { SvJew } from 'svjew';
 <SvJew />; // today's icons, or nothing
 ```
 
+- **Accurate.** Holiday data comes from [`@hebcal/core`](https://github.com/hebcal/hebcal-es6), including both the Israel and diaspora schedules.
+- **Accessible.** Every icon has a Hebrew `<title>`, and the wrapper has `role="img"` with a combined `aria-label`.
+- **Themeable.** Icons are original 24×24 line drawings in `currentColor`.
+- **Small.** Icons tree-shake individually, and the logic is also available without React (`svjew/core`).
+- **Typed.** Written in TypeScript (strict), and ships ESM and CommonJS.
+
 ## Install
 
 ```sh
 npm install svjew
 ```
 
-`react` (≥17) is a peer dependency.
+Requires `react` ≥ 17 (peer dependency). For server-side use, Node ≥ 18.
 
 ## Usage
 
-### Component
+### `<SvJew />`
 
 ```tsx
 import { SvJew } from 'svjew';
@@ -37,7 +43,7 @@ import { SvJew } from 'svjew';
 // Only some kinds of days, at most one icon, Shabbat first
 <SvJew include={['shabbat', 'chanukah', 'roshChodesh']} priority={['shabbat']} max={1} />
 
-// Day starts at sunset (Friday evening counts as Shabbat)
+// The day starts at sunset (Friday evening counts as Shabbat)
 <SvJew location={{ lat: 31.778, lng: 35.235 }} />
 
 // Full control over each item
@@ -50,9 +56,9 @@ import { SvJew } from 'svjew';
 />
 ```
 
-When there are no matches, `<SvJew>` renders `fallback` (default `null`) without any wrapper element. Otherwise it renders an inline-flex `<span role="img">` whose `aria-label` joins the Hebrew titles of every icon, for example `"חנוכה – נר שלישי, שבת"`.
+When there are no matches, `<SvJew>` renders `fallback` (default `null`) with no wrapper element. Otherwise it renders an inline-flex `<span role="img">` whose `aria-label` joins the Hebrew titles of all the icons, for example `"חנוכה – נר שלישי, שבת"`.
 
-### Hook
+### `useSvJew()`
 
 ```tsx
 import { useSvJew } from 'svjew';
@@ -63,21 +69,26 @@ function DayBadge({ date }: { date: Date }) {
 }
 ```
 
-The hook memoizes by option _values_, so inline arrays like `include={['shabbat']}` don't trigger recomputation.
+The hook memoizes by option _values_, so inline arrays such as `include={['shabbat']}` don't trigger recomputation.
 
-### Pure functions (no React, SSR-safe)
+### Without React
+
+`svjew/core` has the same logic with no React import. Its functions are pure and SSR-safe.
 
 ```ts
 import { getSvJewMatches, getSvJewKey } from 'svjew/core';
 import { HDate } from '@hebcal/core';
 
 getSvJewMatches(new HDate(25, 'Kislev', 5787));
-// [{ key: 'chanukah', meta: { night: 1, day: 1 }, event: ChanukahEvent }, { key: 'shabbat' }]
+// [
+//   { key: 'chanukah', meta: { night: 1, day: 1 }, event: ChanukahEvent },
+//   { key: 'shabbat' },
+// ]
 
-getSvJewKey(new Date(), { il: false }); // 'shabbat' | 'pesach' | ... | null
+getSvJewKey(new Date(), { il: false }); // 'shabbat' | 'pesach' | … | null
 ```
 
-Both functions accept either `(date, options)` or a single options object: `getSvJewMatches({ date, il: false })`.
+Both functions take either `(date, options)` or a single options object: `getSvJewMatches({ date, il: false })`.
 
 ### Individual icons
 
@@ -85,25 +96,25 @@ Both functions accept either `(date, options)` or a single options object: `getS
 import { ShabbatIcon, ChanukahIcon } from 'svjew';
 
 <ShabbatIcon size={20} />
-<ChanukahIcon meta={{ night: 3 }} color="goldenrod" />  // 3 candles + shamash
+<ChanukahIcon meta={{ night: 3 }} color="goldenrod" /> // 3 candles + shamash
 ```
 
-Each icon is its own module, so importing one icon bundles only that icon. All of them are also available as a registry, `SvJewIcons` (`Record<SvJewKey, IconComponent>`).
-
-Icon components accept `size` (default `24`), `color` (default `currentColor`), `meta`, `title` (overrides the Hebrew title), and any other SVG prop.
+Icon components accept `size` (default `24`), `color` (default `'currentColor'`), `meta`, `title` (replaces the Hebrew title), and any other SVG attribute. Importing a single icon bundles only that icon. All icons are also available through the `SvJewIcons` registry (`Record<SvJewKey, IconComponent>`).
 
 ## Options
 
-| Option     | Type            | Default | Description                                                                |
-| ---------- | --------------- | ------- | -------------------------------------------------------------------------- |
-| `date`     | `Date \| HDate` | now     | Date to inspect                                                            |
-| `il`       | `boolean`       | `true`  | Israel (`true`) or diaspora (`false`) holiday schedule                     |
-| `include`  | `SvJewKey[]`    | all     | Only return these keys                                                     |
-| `exclude`  | `SvJewKey[]`    | none    | Never return these keys                                                    |
-| `priority` | `SvJewKey[]`    | default | Ordering only (does not filter). Unlisted keys follow in the default order |
-| `max`      | `number`        | ∞       | Maximum number of matches                                                  |
-| `showErev` | `boolean`       | `false` | Include Erev days (Erev Pesach, Erev Yom Kippur, first Chanukah candle…)   |
-| `location` | `{ lat, lng }`  | none    | Day changes at local sunset instead of midnight                            |
+These options are accepted by `<SvJew>`, `useSvJew`, `getSvJewMatches` and `getSvJewKey`:
+
+| Option     | Type            | Default | Description                                                                  |
+| ---------- | --------------- | ------- | ---------------------------------------------------------------------------- |
+| `date`     | `Date \| HDate` | now     | Date to inspect                                                              |
+| `il`       | `boolean`       | `true`  | Israel (`true`) or diaspora (`false`) holiday schedule                       |
+| `include`  | `SvJewKey[]`    | all     | Only return these keys                                                       |
+| `exclude`  | `SvJewKey[]`    | none    | Never return these keys                                                      |
+| `priority` | `SvJewKey[]`    | default | Ordering only (does not filter). Unlisted keys follow in the default order   |
+| `max`      | `number`        | ∞       | Maximum number of matches                                                    |
+| `showErev` | `boolean`       | `false` | Include Erev days (Erev Pesach, Erev Yom Kippur, the first Chanukah candle…) |
+| `location` | `{ lat, lng }`  | none    | Change the day at local sunset instead of midnight                           |
 
 Additional `<SvJew>` props:
 
@@ -118,19 +129,33 @@ Additional `<SvJew>` props:
 | `className`  | `string`                       | none             |
 | `style`      | `CSSProperties`                | none             |
 
+### Matches
+
+```ts
+interface SvJewMatch {
+  key: SvJewKey;
+  meta?: {
+    night?: number; // Chanukah: candles lit (1–8)
+    day?: number; // day within a multi-day festival
+    erev?: boolean; // only returned with showErev
+  };
+  event?: Event; // the original @hebcal/core event (absent for Shabbat)
+}
+```
+
 ## Keys and icons
 
-Default priority order (top = first):
+Listed in the default priority order:
 
 | Key            | Icon                  | Covers                                                                                 |
 | -------------- | --------------------- | -------------------------------------------------------------------------------------- |
 | `yomKippur`    | shofar                | Yom Kippur                                                                             |
 | `roshHashana`  | shofar with sound     | both days (`meta.day` 1–2)                                                             |
-| `pesach`       | matzah                | all days incl. Chol HaMoed (`meta.day` 1–7 / 1–8 in the diaspora)                      |
+| `pesach`       | matzah                | all days incl. Chol HaMoed (`meta.day` 1–7, or 1–8 in the diaspora)                    |
 | `sukkot`       | four species          | all days incl. Chol HaMoed and Hoshana Raba (`meta.day` 1–7)                           |
 | `simchatTorah` | Torah scroll          | Shmini Atzeret / Simchat Torah (one day in Israel, two in the diaspora)                |
 | `shavuot`      | Torah scroll + flower | one day in Israel, two in the diaspora                                                 |
-| `chanukah`     | chanukiah             | 8 days; `meta.night` 1–8 lights that many candles                                      |
+| `chanukah`     | chanukiah             | all 8 days; `meta.night` 1–8 lights that many candles                                  |
 | `purim`        | mask                  | Purim, Shushan Purim, Purim Meshulash                                                  |
 | `shabbat`      | candles + challah     | every Saturday                                                                         |
 | `roshChodesh`  | crescent moon         | every Rosh Chodesh day                                                                 |
@@ -139,53 +164,61 @@ Default priority order (top = first):
 | `yomHaatzmaut` | flag                  | Yom HaAtzma'ut (on its observed date)                                                  |
 | `fastDay`      | plate / clock         | Tzom Gedaliah, Asara B'Tevet, Ta'anit Esther, Ta'anit Bechorot, 17 Tammuz, Tish'a B'Av |
 
-Notes:
-
-- Results are **deduplicated by key**: Pesach I and Pesach II on the same day give one matzah.
-- **Chanukah nights.** The Hebrew day 25 Kislev began with the first candle the evening before, so it has `meta.night: 1`. With `showErev`, 24 Kislev (the evening the first candle is lit) is returned as `{ night: 1, erev: true }`.
+- Matches are **deduplicated by key**: Pesach I and Pesach II on the same day produce one matzah.
+- **Chanukah nights:** the Hebrew day 25 Kislev begins with the first candle the evening before, so it has `meta.night: 1`. With `showErev`, 24 Kislev (the evening of the first candle) is returned as `{ night: 1, erev: true }`.
 - Erev matches have `meta.erev: true`, and their titles are prefixed with "ערב".
 - Not included: Pesach Sheni, Purim Katan, Rosh Hashana LaBehemot, modern memorial days, and the customary Yom Kippur Katan and BeHaB fasts.
 
 ## Day boundary
 
-Without `location`, the date is taken in the runtime's local time zone and the day changes at **midnight**. With `location`, the sunset for that civil date is computed via hebcal's `Zmanim`, and from sunset onward the **next Hebrew day** applies. So Friday after sunset is Shabbat and Erev Pesach after sunset is Pesach. Times are interpreted in the runtime's local time zone. `location` is ignored when `date` is an `HDate`, because an `HDate` has no time of day.
+Without `location`, the date is read in the runtime's local time zone and the day changes at **midnight**.
+
+With `location`, sunset for that date is computed with hebcal's `Zmanim`, and from sunset onward the **next Hebrew day** applies: Friday after sunset is Shabbat, and Erev Pesach after sunset is Pesach. `location` is ignored when `date` is an `HDate`, because an `HDate` has no time of day.
+
+**SSR:** when `date` is omitted, the server and the browser each use their own "now" and time zone, which can cause a hydration mismatch near midnight or sunset. For server-rendered pages, pass an explicit `date`. Note also that `useSvJew` and `<SvJew>` without a `date` re-evaluate "today" only when the component re-renders; they don't set a timer.
 
 ## Icon data
 
-Icons are stored as renderer-agnostic data, which makes them reusable outside React:
+The icons are plain data, so you can draw them with any SVG renderer:
 
 ```ts
 import { iconData, resolveIcon } from 'svjew/icons';
 
 const { viewBox, title, paths } = resolveIcon(iconData.chanukah, { night: 5 });
-// paths: Array<{ d, fill?, stroke?, strokeWidth?, opacity? }>
+// viewBox: '0 0 24 24'
+// title:   'חנוכה – נר חמישי'
+// paths:   Array<{ d, fill?, stroke?, strokeWidth?, opacity? }>
 ```
 
-All icons are original line drawings on a 24×24 grid with a 1.5px round stroke in `currentColor`.
+Paths are drawn with `fill="none"`, `stroke="currentColor"`, `stroke-width="1.5"` and round caps/joins, unless a path overrides them. `createIcon(definition)` turns your own icon data into a component that behaves like the built-in ones.
 
 ## Entry points
 
-| Import         | Contents                                           |
-| -------------- | -------------------------------------------------- |
-| `svjew`        | everything (core + icon data + React components)   |
-| `svjew/core`   | `getSvJewMatches`, `getSvJewKey`, types (no React) |
-| `svjew/icons`  | icon data (no React)                               |
-| `svjew/native` | reserved for React Native (phase 2)                |
+| Import        | Contents                                                      |
+| ------------- | ------------------------------------------------------------- |
+| `svjew`       | everything: core functions, icon data, React components       |
+| `svjew/core`  | `getSvJewMatches`, `getSvJewKey`, constants, types (no React) |
+| `svjew/icons` | icon data and `resolveIcon` (no React)                        |
 
-Both ESM and CommonJS builds ship. `@hebcal/core` is ESM-only, so the CommonJS build bundles its own copy. Use ESM where you can.
+The ESM build depends on `@hebcal/core`. That package is ESM-only, so the CommonJS build bundles its own copy of it. Prefer ESM where you can.
 
 ## Development
 
 ```sh
-npm test          # vitest
-npm run lint      # eslint
-npm run typecheck
-npm run build     # tsup → dist/
-npm run demo      # Vite playground: every day of a Hebrew year
+npm install
+npm test                    # vitest (unit, component and full-year snapshot tests)
+npm run lint                # eslint
+npm run typecheck           # tsc
+npm run build               # tsup → dist/
+npm run demo                # Vite playground: every day of a Hebrew year
+npm run hebcal:descriptions # list every event name hebcal emits
 ```
 
-Test dates are always computed from Hebrew dates through hebcal, never hard-coded Gregorian dates. `test/__snapshots__/` contains full-year snapshots (Israel and diaspora) that are worth reviewing whenever you upgrade `@hebcal/core`.
+Test dates are always derived from Hebrew dates through hebcal, never hard-coded Gregorian dates. After upgrading `@hebcal/core`:
+
+1. Run `npm run hebcal:descriptions` and compare the output with the mapping in `src/core/mapping.ts`.
+2. Review any changes to the full-year snapshots in `test/__snapshots__/`.
 
 ## License
 
-MIT
+[MIT](./LICENSE)

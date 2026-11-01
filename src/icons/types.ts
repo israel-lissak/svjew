@@ -11,7 +11,7 @@ export interface IconPath {
   opacity?: number;
 }
 
-/** Renderer-agnostic icon description, shared by the web and (future) native renderers. */
+/** Renderer-agnostic icon description (plain data, usable by any SVG renderer). */
 export interface IconData {
   viewBox: string;
   /** Accessible title, in Hebrew. */

@@ -5,13 +5,13 @@ const shared: Options = {
     index: 'src/index.ts',
     core: 'src/core/index.ts',
     icons: 'src/icons/index.ts',
-    native: 'src/native/index.ts',
   },
-  sourcemap: true,
+  dts: true,
+  clean: false, // `npm run build` wipes dist/ once; the two configs run in parallel
   treeshake: true,
   splitting: true,
   target: 'es2020',
-  external: ['react', 'react/jsx-runtime', 'react-native-svg'],
+  external: ['react', 'react/jsx-runtime'],
 };
 
 export default defineConfig([
@@ -19,17 +19,17 @@ export default defineConfig([
   {
     ...shared,
     format: 'esm',
-    dts: true,
-    clean: false,
+    sourcemap: true,
     external: [...shared.external!, '@hebcal/core'],
   },
-  // CJS: @hebcal/core ships ESM-only (its package exports have no "require" condition),
-  // so `require('@hebcal/core')` cannot resolve. Bundle it into the CJS build instead.
+  // CJS: @hebcal/core is ESM-only (its package exports have no "require" condition),
+  // so `require('@hebcal/core')` cannot resolve. Bundle it into the CJS build, minified
+  // and without source maps to keep the package small.
   {
     ...shared,
     format: 'cjs',
-    dts: true,
-    clean: false,
+    minify: true,
+    sourcemap: false,
     noExternal: [/^@hebcal\//, 'temporal-polyfill'],
   },
 ]);

@@ -7,7 +7,8 @@ export interface Classification {
 }
 
 // Description strings verified against @hebcal/core 6.x output for Hebrew years
-// 5760–5830 in both Israel and diaspora modes (see scripts/descs.mjs).
+// 5760–5830 in both Israel and diaspora modes. After upgrading hebcal, re-check
+// with `npm run hebcal:descriptions`.
 // Exact matches / anchored regexes on purpose, to avoid look-alikes such as
 // "Rosh Hashana LaBehemot", "Pesach Sheni", "Purim Katan" and "Yom Kippur Katan …".
 const EXACT: Record<string, SvJewKey> = {
