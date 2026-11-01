@@ -1,0 +1,125 @@
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --fg: #0f172a;
+  --accent: #1d4ed8;
+  --hit: #eff6ff;
+  color-scheme: light dark;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --card: #111827;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --fg: #e2e8f0;
+    --accent: #fbbf24;
+    --hit: #1e293b;
+  }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+.sub {
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  position: sticky;
+  top: 8px;
+  z-index: 1;
+}
+.controls label {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+.legend div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--accent);
+}
+.legend small {
+  color: var(--fg);
+}
+.month h2 {
+  font-size: 16px;
+  margin: 24px 0 8px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.dow {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+.day {
+  min-height: 78px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.day.hit {
+  background: var(--hit);
+}
+.day .d {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.day .g {
+  color: var(--muted);
+  font-size: 11px;
+}
+.day .icons {
+  color: var(--accent);
+}
+.day .names {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.2;
+}
