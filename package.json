@@ -1,6 +1,6 @@
 {
   "name": "@israel-lissak/svjew",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React SVG icons for Hebrew calendar days: Shabbat, holidays, Rosh Chodesh, Chanukah nights and fasts, powered by @hebcal/core",
   "keywords": [
     "jewish",
