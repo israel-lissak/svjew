@@ -8,11 +8,16 @@ import { roshChodesh } from './roshChodesh';
 import { roshHashana } from './roshHashana';
 import { shabbat } from './shabbat';
 import { shavuot } from './shavuot';
+import { sigd } from './sigd';
 import { simchatTorah } from './simchatTorah';
 import { sukkot } from './sukkot';
 import { tuBishvat } from './tuBishvat';
 import { yomHaatzmaut } from './yomHaatzmaut';
+import { yomHashoah } from './yomHashoah';
+import { yomHazikaron } from './yomHazikaron';
 import { yomKippur } from './yomKippur';
+import { yomRabin } from './yomRabin';
+import { yomYerushalayim } from './yomYerushalayim';
 import type { IconDefinition } from './types';
 
 export type { IconData, IconDefinition, IconPath } from './types';
@@ -28,11 +33,16 @@ export {
   roshHashana,
   shabbat,
   shavuot,
+  sigd,
   simchatTorah,
   sukkot,
   tuBishvat,
   yomHaatzmaut,
+  yomHashoah,
+  yomHazikaron,
   yomKippur,
+  yomRabin,
+  yomYerushalayim,
 };
 
 /** Icon data for every key. */
@@ -51,4 +61,9 @@ export const iconData: Readonly<Record<SvJewKey, IconDefinition>> = {
   roshChodesh,
   fastDay,
   yomHaatzmaut,
+  yomHashoah,
+  yomHazikaron,
+  yomYerushalayim,
+  yomRabin,
+  sigd,
 };

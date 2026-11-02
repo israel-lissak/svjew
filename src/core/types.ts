@@ -15,7 +15,12 @@ export type SvJewKey =
   | 'shavuot'
   | 'roshChodesh'
   | 'fastDay'
-  | 'yomHaatzmaut';
+  | 'yomHaatzmaut'
+  | 'yomHashoah'
+  | 'yomHazikaron'
+  | 'yomYerushalayim'
+  | 'yomRabin'
+  | 'sigd';
 
 export interface SvJewMeta {
   /** Chanukah: which night's candles are lit (1–8). */

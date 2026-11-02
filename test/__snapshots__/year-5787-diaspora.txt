@@ -21,6 +21,7 @@
 2026-10-24 13 Cheshvan 5787   shabbat                                      
 2026-10-31 20 Cheshvan 5787   shabbat                                      
 2026-11-07 27 Cheshvan 5787   shabbat                                      
+2026-11-09 29 Cheshvan 5787   sigd                                         Sigd
 2026-11-10 30 Cheshvan 5787   roshChodesh                                  Rosh Chodesh Kislev
 2026-11-11 1 Kislev 5787      roshChodesh                                  Rosh Chodesh Kislev
 2026-11-14 4 Kislev 5787      shabbat                                      
@@ -72,13 +73,16 @@
 2027-04-28 21 Nisan 5787      pesach(day=7)                                Pesach VII
 2027-04-29 22 Nisan 5787      pesach(day=8)                                Pesach VIII
 2027-05-01 24 Nisan 5787      shabbat                                      
+2027-05-04 27 Nisan 5787      yomHashoah                                   Yom HaShoah
 2027-05-07 30 Nisan 5787      roshChodesh                                  Rosh Chodesh Iyyar
 2027-05-08 1 Iyyar 5787       shabbat roshChodesh                          Rosh Chodesh Iyyar
+2027-05-11 4 Iyyar 5787       yomHazikaron                                 Yom HaZikaron
 2027-05-12 5 Iyyar 5787       yomHaatzmaut                                 Yom HaAtzma'ut
 2027-05-15 8 Iyyar 5787       shabbat                                      
 2027-05-22 15 Iyyar 5787      shabbat                                      
 2027-05-25 18 Iyyar 5787      lagBaomer                                    Lag BaOmer
 2027-05-29 22 Iyyar 5787      shabbat                                      
+2027-06-04 28 Iyyar 5787      yomYerushalayim                              Yom Yerushalayim
 2027-06-05 29 Iyyar 5787      shabbat                                      
 2027-06-06 1 Sivan 5787       roshChodesh                                  Rosh Chodesh Sivan
 2027-06-10 5 Sivan 5787       shavuot(erev=true)                           Erev Shavuot

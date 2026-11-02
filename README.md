@@ -147,27 +147,32 @@ interface SvJewMatch {
 
 Listed in the default priority order:
 
-| Key            | Icon                   | Covers                                                                                 |
-| -------------- | ---------------------- | -------------------------------------------------------------------------------------- |
-| `yomKippur`    | shofar                 | Yom Kippur                                                                             |
-| `roshHashana`  | shofar with sound      | both days (`meta.day` 1–2)                                                             |
-| `pesach`       | matzah                 | all days incl. Chol HaMoed (`meta.day` 1–7, or 1–8 in the diaspora)                    |
-| `sukkot`       | four species           | all days incl. Chol HaMoed and Hoshana Raba (`meta.day` 1–7)                           |
-| `simchatTorah` | Torah scroll           | Shmini Atzeret / Simchat Torah (one day in Israel, two in the diaspora)                |
-| `shavuot`      | Torah scroll + flower  | one day in Israel, two in the diaspora                                                 |
-| `chanukah`     | chanukiah              | all 8 days; `meta.night` 1–8 lights that many candles                                  |
-| `purim`        | mask                   | Purim, Shushan Purim, Purim Meshulash                                                  |
-| `shabbat`      | candles + challah      | every Saturday                                                                         |
-| `roshChodesh`  | crescent moon          | every Rosh Chodesh day                                                                 |
-| `tuBishvat`    | tree with fruit        | Tu BiShvat                                                                             |
-| `lagBaomer`    | bonfire                | Lag BaOmer                                                                             |
-| `yomHaatzmaut` | flag                   | Yom HaAtzma'ut (on its observed date)                                                  |
-| `fastDay`      | no food (fork & knife) | Tzom Gedaliah, Asara B'Tevet, Ta'anit Esther, Ta'anit Bechorot, 17 Tammuz, Tish'a B'Av |
+| Key               | Icon                   | Covers                                                                                 |
+| ----------------- | ---------------------- | -------------------------------------------------------------------------------------- |
+| `yomKippur`       | shofar                 | Yom Kippur                                                                             |
+| `roshHashana`     | shofar with sound      | both days (`meta.day` 1–2)                                                             |
+| `pesach`          | matzah and pyramid     | all days incl. Chol HaMoed (`meta.day` 1–7, or 1–8 in the diaspora)                    |
+| `sukkot`          | four species           | all days incl. Chol HaMoed and Hoshana Raba (`meta.day` 1–7)                           |
+| `simchatTorah`    | Torah scroll           | Shmini Atzeret / Simchat Torah (one day in Israel, two in the diaspora)                |
+| `shavuot`         | Torah scroll + flower  | one day in Israel, two in the diaspora                                                 |
+| `chanukah`        | chanukiah              | all 8 days; `meta.night` 1–8 lights that many candles                                  |
+| `purim`           | mask                   | Purim, Shushan Purim, Purim Meshulash                                                  |
+| `shabbat`         | candles + challah      | every Saturday                                                                         |
+| `roshChodesh`     | crescent moon          | every Rosh Chodesh day                                                                 |
+| `tuBishvat`       | tree with fruit        | Tu BiShvat                                                                             |
+| `lagBaomer`       | bonfire                | Lag BaOmer                                                                             |
+| `yomHaatzmaut`    | flag                   | Yom HaAtzma'ut (on its observed date)                                                  |
+| `yomHazikaron`    | flag at half-mast      | Yom HaZikaron (on its observed date)                                                   |
+| `yomHashoah`      | memorial candle        | Yom HaShoah (on its observed date)                                                     |
+| `yomYerushalayim` | Western Wall           | Yom Yerushalayim                                                                       |
+| `yomRabin`        | dove with olive branch | Yitzhak Rabin Memorial Day (Israel schedule only, on its observed date)                |
+| `sigd`            | kes's umbrella         | Sigd                                                                                   |
+| `fastDay`         | no food (fork & knife) | Tzom Gedaliah, Asara B'Tevet, Ta'anit Esther, Ta'anit Bechorot, 17 Tammuz, Tish'a B'Av |
 
 - Matches are **deduplicated by key**: Pesach I and Pesach II on the same day produce one matzah.
 - **Chanukah nights:** the Hebrew day 25 Kislev begins with the first candle the evening before, so it has `meta.night: 1`. With `showErev`, 24 Kislev (the evening of the first candle) is returned as `{ night: 1, erev: true }`.
 - Erev matches have `meta.erev: true`, and their titles are prefixed with "ערב".
-- Not included: Pesach Sheni, Purim Katan, Rosh Hashana LaBehemot, modern memorial days, and the customary Yom Kippur Katan and BeHaB fasts.
+- Not included: Pesach Sheni, Purim Katan, Rosh Hashana LaBehemot, Yom HaAliyah, Family Day and other minor modern observances, and the customary Yom Kippur Katan and BeHaB fasts.
 
 ## Day boundary
 

@@ -8,11 +8,16 @@ import { roshChodesh } from '../icons/roshChodesh';
 import { roshHashana } from '../icons/roshHashana';
 import { shabbat } from '../icons/shabbat';
 import { shavuot } from '../icons/shavuot';
+import { sigd } from '../icons/sigd';
 import { simchatTorah } from '../icons/simchatTorah';
 import { sukkot } from '../icons/sukkot';
 import { tuBishvat } from '../icons/tuBishvat';
 import { yomHaatzmaut } from '../icons/yomHaatzmaut';
+import { yomHashoah } from '../icons/yomHashoah';
+import { yomHazikaron } from '../icons/yomHazikaron';
 import { yomKippur } from '../icons/yomKippur';
+import { yomRabin } from '../icons/yomRabin';
+import { yomYerushalayim } from '../icons/yomYerushalayim';
 import { createIcon, type IconComponent } from './createIcon';
 
 // `@__PURE__` lets bundlers drop icons that are never imported.
@@ -30,6 +35,14 @@ export const ShavuotIcon = /* @__PURE__ */ createIcon(shavuot, 'ShavuotIcon');
 export const RoshChodeshIcon = /* @__PURE__ */ createIcon(roshChodesh, 'RoshChodeshIcon');
 export const FastDayIcon = /* @__PURE__ */ createIcon(fastDay, 'FastDayIcon');
 export const YomHaatzmautIcon = /* @__PURE__ */ createIcon(yomHaatzmaut, 'YomHaatzmautIcon');
+export const YomHashoahIcon = /* @__PURE__ */ createIcon(yomHashoah, 'YomHashoahIcon');
+export const YomHazikaronIcon = /* @__PURE__ */ createIcon(yomHazikaron, 'YomHazikaronIcon');
+export const YomYerushalayimIcon = /* @__PURE__ */ createIcon(
+  yomYerushalayim,
+  'YomYerushalayimIcon',
+);
+export const YomRabinIcon = /* @__PURE__ */ createIcon(yomRabin, 'YomRabinIcon');
+export const SigdIcon = /* @__PURE__ */ createIcon(sigd, 'SigdIcon');
 
 /** React icon component for every key. */
 export const SvJewIcons: Readonly<Record<SvJewKey, IconComponent>> = {
@@ -47,4 +60,9 @@ export const SvJewIcons: Readonly<Record<SvJewKey, IconComponent>> = {
   roshChodesh: RoshChodeshIcon,
   fastDay: FastDayIcon,
   yomHaatzmaut: YomHaatzmautIcon,
+  yomHashoah: YomHashoahIcon,
+  yomHazikaron: YomHazikaronIcon,
+  yomYerushalayim: YomYerushalayimIcon,
+  yomRabin: YomRabinIcon,
+  sigd: SigdIcon,
 };

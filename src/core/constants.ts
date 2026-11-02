@@ -15,6 +15,11 @@ export const DEFAULT_PRIORITY: readonly SvJewKey[] = Object.freeze([
   'tuBishvat',
   'lagBaomer',
   'yomHaatzmaut',
+  'yomHazikaron',
+  'yomHashoah',
+  'yomYerushalayim',
+  'yomRabin',
+  'sigd',
   'fastDay',
 ] as const);
 

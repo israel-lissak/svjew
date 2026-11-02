@@ -12,10 +12,10 @@ describe('ordinary days', () => {
     expect(getSvJewKey(hd.greg())).toBeNull();
   });
 
-  it('ignores hebcal events that have no icon (Yom HaShoah, Pesach Sheni, Purim Katan…)', () => {
+  it('ignores hebcal events that have no icon (Yom HaAliyah, Pesach Sheni, Purim Katan…)', () => {
     // [hebcal description, svjew key it must NOT be confused with]
     const lookAlikes: Array<[string, SvJewKey | null]> = [
-      ['Yom HaShoah', null],
+      ['Yom HaAliyah', null],
       ['Pesach Sheni', 'pesach'],
       ['Purim Katan', 'purim'],
       ['Shushan Purim Katan', 'purim'],
@@ -313,6 +313,12 @@ describe('invariants across many years', () => {
       expect(c.lagBaomer).toBe(1);
       expect(c.shavuot).toBe(isIL ? 1 : 2);
       expect(c.yomHaatzmaut).toBe(1);
+      expect(c.yomHashoah).toBe(1);
+      expect(c.yomHazikaron).toBe(1);
+      expect(c.yomYerushalayim).toBe(1);
+      expect(c.sigd).toBe(1);
+      // hebcal lists Rabin Memorial Day in the Israel schedule only
+      expect(c.yomRabin).toBe(isIL ? 1 : 0);
       // Tzom Gedaliah, Asara B'Tevet, Ta'anit Esther, Ta'anit Bechorot, 17 Tammuz, 9 Av
       expect(c.fastDay).toBe(6);
       expect(c.purim).toBeGreaterThanOrEqual(2);

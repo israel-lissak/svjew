@@ -21,6 +21,11 @@ const EXACT: Record<string, SvJewKey> = {
   'Purim Meshulash': 'purim',
   'Lag BaOmer': 'lagBaomer',
   "Yom HaAtzma'ut": 'yomHaatzmaut',
+  'Yom HaShoah': 'yomHashoah',
+  'Yom HaZikaron': 'yomHazikaron',
+  'Yom Yerushalayim': 'yomYerushalayim',
+  'Yitzhak Rabin Memorial Day': 'yomRabin',
+  Sigd: 'sigd',
 };
 
 const PATTERNS: Array<[RegExp, SvJewKey]> = [
